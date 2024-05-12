@@ -90,7 +90,7 @@ export const Socials = [
   {
     name: "Instagram",
     src: "/assets/instagram.svg",
-    href: "https://www.instagram.com/ohdudekev?igsh=MTU1NWVqcWlndTZzcQ%3D%3D&utm_source=qr "
+    href: "https://www.instagram.com/ohdudekev?igsh=MTU1NWVqcWlndTZzcQ%3D%3D&utm_source=qr"
   },
 ];
 export const Projects = [
