@@ -1,8 +1,77 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+:root {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: #34d399;
+  --color-brand-strong: #6ee7b7;
+  --color-brand-foreground: #04160e;
+  --color-muted: #9aa4b2;
+  --color-card: #141414;
+  --color-border: #242424;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --animate-blink: blink 1s step-end infinite;
+  --animate-marquee: marquee 35s linear infinite;
+}
+
+/* Hard on/off blink, like a terminal block cursor */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Left/right fade — outer div clips, inner track animates */
+.ticker-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 16%,
+    black 84%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 16%,
+    black 84%,
+    transparent 100%
+  );
+}
+
+html {
+  color-scheme: dark;
+}
 
 body {
-  overflow: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Subtle background grid that fades out toward the edges */
+.grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 60% at 50% 42%,
+    #000 20%,
+    transparent 78%
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 60% at 50% 42%,
+    #000 20%,
+    transparent 78%
+  );
 }
